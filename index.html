@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://th.bing.com/th/id/R.27189aee9af0c5983eb5211e60db99c1?rik=EnGb9ozjePLvng&riu=http%3a%2f%2fpa1.narvii.com%2f5977%2fba09443753ba62f221102c145fa5e9bc815bbb42_hq.gif&ehk=nu7W%2bqLZgnhGAnGX8t91%2b8Yqr4%2b1ikFXZShQPgwe4kc%3d&risl=&pid=ImgRaw&r=0");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    animation: animateBackground 20s linear infinite; /* Background animation */
+  }
+  
+  /* Animation for background */
+  @keyframes animateBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  .login-container {
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure login form is on top */
+  }
+  
+  input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    margin: 10px;
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    animation: pulse 1.5s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      background-color: red;
+    }
+    50% {
+      transform: scale(1.1);
+      background-color: orange;
+    }
+    100% {
+      transform: scale(1);
+      background-color: red;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <h2 style="color:white;">Enter at your own risk</h2>
+    <form action="your-page-url.html" method="post"> <!-- Change your-page-url.html to the URL of your desired page -->
+      <input type="text" placeholder="Username" required><br>
+      <input type="password" placeholder="Password" required><br>
+      <a href="your-page-url.html"><input type="submit" value="Login" id="loginBtn"></a> <!-- Wrap the button inside an anchor tag -->
+    </form>
+  </div>
+</body>
+</html>
