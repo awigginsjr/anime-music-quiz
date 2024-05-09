@@ -1,4 +1,25 @@
-# project-2
+# Anime-Music-Quiz
+
+## Description
+
+## Screenshot of Application
+
+![screenshot]()
+
+## Contributing ~
+
+Contributors and contributions
+
+GitHub:
+[https://github.com/RoxD90](https://github.com/RoxD90)
+
+GitHub:
+[https://github.com/Shanbeezy](https://github.com/Shanbeezy)
+
+GitHub:
+[https://github.com/awigginsjr](https://github.com/awigginsjr)
+
+## Links
 
 - Use Node.js and Express.js to create a RESTful API.
 
