@@ -1,3 +1,4 @@
+/*background image and body formatting*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -24,30 +25,62 @@ body {
     position: relative;
     z-index: 1; /* Ensure login form is on top */
   }
-  
+  /* format the email and password text area*/
   input[type="text"], input[type="password"] {
     padding: 10px;
     margin: 10px;
-    width: 200px;
+    width: 275px;
     border-radius: 5px;
     border: 1px solid #ccc;
     outline: none;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
   }
-  
+  /* format the login button */
   input[type="submit"] {
     padding: 10px 20px;
     margin: 10px;
-    width: 150px;
+    width: 130px;
     border-radius: 5px;
     border: none;
     background-color: red;
     color: white;
     font-size: 16px;
+    
     cursor: pointer;
     outline: none;
     animation: pulse 1.5s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      background-color: red;
+    }
+    50% {
+      transform: scale(1.1);
+      background-color: orange;
+    }
+    100% {
+      transform: scale(1);
+      background-color: red;
+    }
+  }
+ /* to format the sign up button*/
+  input[type="sign"] {
+    padding: 10px 20px;
+    margin: 10px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    animation: pulse 1.5s infinite alternate;
+    
   }
 
   @keyframes pulse {
