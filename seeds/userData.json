@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 [
     {
@@ -14,3 +15,19 @@
     }
   ]
   
+=======
+[
+  {
+    "username": "AntWiggs",
+    "password": "password12345"
+  },
+  {
+    "username": "RoxD90",
+    "password": "password12345"
+  },
+  {
+    "username": "Shanbeezy",
+    "password": "password12345"
+  }
+]
+>>>>>>> 6a4cbf95fe3c3abc6a50d1ccd45920d00a7de4a0
