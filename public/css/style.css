@@ -7,11 +7,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("https://th.bing.com/th/id/R.27189aee9af0c5983eb5211e60db99c1?rik=EnGb9ozjePLvng&riu=http%3a%2f%2fpa1.narvii.com%2f5977%2fba09443753ba62f221102c145fa5e9bc815bbb42_hq.gif&ehk=nu7W%2bqLZgnhGAnGX8t91%2b8Yqr4%2b1ikFXZShQPgwe4kc%3d&risl=&pid=ImgRaw&r=0");
+    background-image: url("https://wallpapercave.com/wp/wp7333698.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
-    animation: animateBackground 20s linear infinite; /* Background animation */
+    
   }
   
   /* Animation for background */
@@ -35,21 +35,24 @@ body {
     outline: none;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
+    position: relative;
+    bottom: -80px; /* Adjust as needed */
   }
   /* format the login button */
-  input[type="submit"] {
+  input[type="submit"], input[type="sign"] {
     padding: 10px 20px;
-    margin: 10px;
+    margin: 20px 5px; /* Adjust the top and bottom margin */
     width: 130px;
     border-radius: 5px;
     border: none;
     background-color: red;
     color: white;
     font-size: 16px;
-    
     cursor: pointer;
     outline: none;
     animation: pulse 1.5s infinite alternate;
+    position: relative;
+    bottom: -100px; /* Adjust as needed */
   }
 
   @keyframes pulse {
@@ -80,6 +83,8 @@ body {
     cursor: pointer;
     outline: none;
     animation: pulse 1.5s infinite alternate;
+    position: relative;
+    bottom: -100px; /* Adjust as needed */
     
   }
 
@@ -97,3 +102,36 @@ body {
       background-color: red;
     }
   }
+
+  .vertical-animated-text {
+    position: fixed;
+    top: 50%;
+    right: 10px; /* Adjust the distance from the right side */
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: #fff;
+    writing-mode: vertical-lr; /* Vertical text from bottom to top */
+    text-orientation: upright; /* Keeps the text orientation upright */
+  }
+  
+  .vertical-animated-text span {
+    display: block;
+    animation: flipAndShimmer 2s ease infinite;
+  }
+  
+  
+  @keyframes flipAndShimmer {
+    0% {
+      transform: rotateY(0deg) scale(1);
+      filter: brightness(100%);
+    }
+    50% {
+      transform: rotateY(360deg) scale(1.2);
+      filter: brightness(150%);
+    }
+    100% {
+      transform: rotateY(720deg) scale(1);
+      filter: brightness(100%);
+    }
+  }
+  

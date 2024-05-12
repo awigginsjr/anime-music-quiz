@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2 style="color:white;">Create Your Account</h2>
+    <form action="create-account.php" method="post"> <!-- Change create-account.php to the URL of your backend script to handle form submission -->
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+      <input type="submit" value="Signup">
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a>.</p>
+  </div>
+</body>
+
+</html>

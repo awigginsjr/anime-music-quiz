@@ -10,7 +10,7 @@
 
 <body>
   <div class="login-container">
-    <h2 style="color:white;">Enter at your own risk</h2>
+    
     <form action="your-page-url.html" method="post"> <!-- Change your-page-url.html to the URL of your desired page -->
       <input type="text" placeholder="Username" required><br>
       <input type="password" placeholder="Password" required><br>
@@ -26,6 +26,7 @@
       <!-- Sign up button -->
       <a href="signup.html"><input type="sign" value="Signup" id="signupBtn"></a> 
       {{/if}}
+      </ul>
     </nav>
     </header>
     <main class="container container-fluid mt-5">
@@ -35,13 +36,19 @@
     <footer>
 
     </footer>
+    <div class="vertical-animated-text">
+      <span>A</span>
+      <span>N</span>
+      <span>I</span>
+      <span>M</span>
+      <span>E</span>
+    </div>
   </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  </div>
 </body>
 
 </html>
