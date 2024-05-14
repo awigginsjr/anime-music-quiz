@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,160 +10,32 @@
 
 <body>
   <div class="login-container">
-<<<<<<< HEAD
-    
-    <form action="your-page-url.html" method="post"> <!-- Change your-page-url.html to the URL of your desired page -->
-=======
-    <h2 style="color:white;">Enter at your own risk</h2>
-    <form action="your-page-url.html" method="post"> <!-- Change your-page-url.html to the URL of your desired page ->
->>>>>>> 6a4cbf95fe3c3abc6a50d1ccd45920d00a7de4a0
-      <input type="text" placeholder="Username" required><br>
-      <input type="password" placeholder="Password" required><br>
-      <!-- Wrap the button inside an anchor tag -> 
-    </form>
 
     <nav>
-      <!-- Conditionally render login or logout links ->
+      <!-- Conditionally render login or logout links -->
       {{#if logged_in}}
       <a href="/profile">profile</a> |
       <button class="no-button" id="logout">logout</button>
       {{else}}
-      <a href="/"><input type="submit" value="Login" id="loginBtn"></a> 
-      <!-- Sign up button ->
-      <a href="/login"><input type="sign" value="Signup" id="signupBtn"></a> 
+      <a href="/login"><input type="submit" value="Login" id="loginBtn"></a> 
+      <!-- Sign up button -->
+      <a href="/signup"><input type="sign" value="Signup" id="signupBtn"></a> 
       {{/if}}
-      </ul>
+
     </nav>
-    </header>
+    
     <main class="container container-fluid mt-5">
-      <!-- Render the sub layout ->
+      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
 
-    </footer>
-    <div class="vertical-animated-text">
-      <span>A</span>
-      <span>N</span>
-      <span>I</span>
-      <span>M</span>
-      <span>E</span>
-    </div>
   </div>
 
-  <!-- Render script for logged in users only ->
+  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-</body>
 
-</html>
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login and Signup</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <div class="login-container">
-    <h2 style="color:white;">Enter at your own risk</h2>
-    
-    <!-- Login Form -->
-    <form id="loginForm" action="login-url.html" method="post" style="display:none;">
-      <input type="text" placeholder="Username" required><br>
-      <input type="password" placeholder="Password" required><br>
-      <button type="submit">Login</button>
-    </form>
-    
-    <!-- Signup Form -->
-    <form id="signupForm" action="signup-url.html" method="post" style="display:none;">
-      <input type="text" placeholder="Name" name="name" required><br>
-      <input type="email" placeholder="Email" name="email" required><br>
-      <input type="password" placeholder="Password" name="password" required><br>
-      <button type="submit">Signup</button>
-    </form>
-
-    <nav>
-      <!-- Conditional Render for Login/Logout Links -->
-      {{#if logged_in}}
-      <a href="/profile">Profile</a> |
-      <button class="no-button" id="logout">Logout</button>
-      {{else}}
-      <button id="loginBtn">Login</button>
-      <button id="signupBtn">Signup</button>
-      {{/if}}
-    </nav>
-  </div>
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-  
-  <!-- Include JavaScript to handle form visibility -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const loginBtn = document.getElementById('loginBtn');
-      const signupBtn = document.getElementById('signupBtn');
-      const loginForm = document.getElementById('loginForm');
-      const signupForm = document.getElementById('signupForm');
-
-      loginBtn.onclick = function() {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
-      };
-
-      signupBtn.onclick = function() {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-      };
-    });
-  </script>
-</body>
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anime Tunes and Quiz</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Anime Tunes</a>
-      </h1>
-      <nav>
-        
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-        
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
-
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 
 </html>

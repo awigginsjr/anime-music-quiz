@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
+<!--
 <body>
   <div class="signup-container">
     <h2 style="color:white;">Create Your Account</h2>
-    <form action="create-account.php" method="post"> <!-- Change create-account.php to the URL of your backend script to handle form submission -->
+    <form action="create-account.php" method="post"> <!-- Change create-account.php to the URL of your backend script to handle form submission ->
       <input type="text" name="username" placeholder="Username" required><br>
       <input type="email" name="email" placeholder="Email" required><br>
       <input type="password" name="password" placeholder="Password" required><br>
@@ -20,6 +21,22 @@
     </form>
     <p>Already have an account? <a href="login.html">Login here</a>.</p>
   </div>
+</body>
+-->
+
+<body>
+  <div class="signup-container">
+  <h2>Sign Up</h2>
+  <form method="POST" action="/signup">
+    <!-- signup fields -->
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="/login">Login here</a>.</p>
+</div>
+
 </body>
 
 </html>

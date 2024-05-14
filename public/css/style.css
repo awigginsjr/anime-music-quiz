@@ -26,7 +26,7 @@ body {
   z-index: 1; /* Ensure login form is on top */
 }
 /* format the email and password text area*/
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"] {
   padding: 10px;
   margin: 10px;
   width: 275px;
