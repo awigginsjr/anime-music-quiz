@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const axios = require('axios');
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -89,7 +90,7 @@ router.get('/signup', (req, res) => {
 });
 
 
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   let quoteData = null;
 
   try {
