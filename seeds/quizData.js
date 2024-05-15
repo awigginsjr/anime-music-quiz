@@ -37,3 +37,5 @@ const quizData = [
     // Add more questions as needed
 ];
 
+// Exports quiz data array
+module.exports = quizData;

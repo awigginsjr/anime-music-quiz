@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const quizData = require('../seeds/quizData')
+const axios = require('axios');
 
 router.get('/', async (req, res) => {
   try {
@@ -29,6 +31,24 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+
+  let quoteData = null;
+
+  try {
+    // Fetch data from API endpoints
+    const factsResponse = await axios.get('https://waifu.it/api/v4/facts', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
+    const quotesResponse = await axios.get('https://waifu.it/api/v4/quotes', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
+    
+    // Extract data from responses
+    const facts = factsResponse.data;
+    const quotes = quotesResponse.data;
+    
+    // Render main.handlebars with data
+    res.render('main', { facts, quotes });
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+    res.status(500).send('Error fetching data');
   }
 });
 
@@ -88,34 +108,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-<<<<<<< HEAD
 router.get('/music-quiz', (req, res) => {
   res.render('music-quiz', { quizData });
-=======
-
-app.get('/', async (req, res) => {
-  let quoteData = null;
-
-  try {
-      // Fetch quote data from API
-        quoteData = await axios.get('https://waifu.it/api/v4/:quote', {
-          headers: {
-              Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f'
-          }
-      });
-
-    } catch (err) {} 
-    
-    try { 
-      // Pass quote data to handlebars template
-      res.render('home', {
-          quote: quoteData && quoteData.data // Assuming the quote is in the 'data' property
-      });
-  } catch (error) {
-      console.error('Error fetching quote:', error);
-      res.render('home', { quote: 'Failed to fetch quote' }); // Render with default quote
-  }
->>>>>>> 0ab5ef920a1e5af072d567cd102ad13bf49eed32
 });
 
 module.exports = router;
