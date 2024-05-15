@@ -88,8 +88,115 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+<<<<<<< HEAD
 router.get('/music-quiz', (req, res) => {
   res.render('music-quiz', { quizData });
+=======
+
+app.get('/', async (req, res) => {
+  let quoteData = null;
+
+  try {
+      // Fetch quote data from API
+        quoteData = await axios.get('https://waifu.it/api/v4/:quote', {
+          headers: {
+              Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f'
+          }
+      });
+
+    } catch (err) {} 
+    
+    try { 
+      // Pass quote data to handlebars template
+      res.render('home', {
+          quote: quoteData && quoteData.data // Assuming the quote is in the 'data' property
+      });
+  } catch (error) {
+      console.error('Error fetching quote:', error);
+      res.render('home', { quote: 'Failed to fetch quote' }); // Render with default quote
+  }
+>>>>>>> 0ab5ef920a1e5af072d567cd102ad13bf49eed32
 });
 
 module.exports = router;
+
+
+// API for facts 
+
+// {{!-- API Token NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDQ5Ng--.0e8a1deef4 --}}
+
+// {{!-- NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f --}}
+
+// Authorization: NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f
+
+// import axios from "axios"; 
+
+// const axios = require("axios");
+
+// const url = "https://waifu.it/api/v4/:endpoint"
+// const data = async () => {
+//     try {
+//         const { data } = await axios.get(url, { headers: {
+//             Authorization: "NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f",
+//         } });
+//         return data;
+//     } catch (err) {
+//         throw new Error(err.message);
+//     }
+// };
+
+// console.log(data);
+
+
+
+// API for quotes
+
+// import axios from "axios";
+
+// const axios = require("axios");
+
+// const url = "https://waifu.it/api/v4/:quote"
+// const data = async () => {
+//     try {
+//         const { data } = await axios.get(url, { headers: {
+//             Authorization: "NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f",
+//         } });
+//         return data;
+//     } catch (err) {
+//         throw new Error(err.message);
+//     }
+// };
+
+// console.log(data);
+
+// const axios = require('axios');
+// const url = "https://waifu.it/api/v4/:endpoint";
+
+// const fetchData = async () => {
+//     try {
+//         const response = await axios.get(url, {
+//             headers: {
+//                 Authorization: "NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f"
+//             }
+//         });
+//         return response.data;
+//     } catch (err) {
+//         throw new Error(err.message);
+//     }
+// };
+
+// // Call the function and log the result
+// fetchData()
+//     .then(data => console.log(data))
+//     .catch(error => console.error(error));
+
+// "status": 200,
+// "message": {}
+
+// "status": 404,
+// "message": {}
+
+// "status": 505,
+// "message": {}
+
+// console.log(data);
