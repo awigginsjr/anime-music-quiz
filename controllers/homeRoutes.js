@@ -88,4 +88,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/music-quiz', (req, res) => {
+  res.render('music-quiz', { quizData });
+});
+
 module.exports = router;

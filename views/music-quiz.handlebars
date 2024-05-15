@@ -1,0 +1,20 @@
+<h1>Music Quiz</h1>
+<div id="quiz-container">
+    {{#each quizData}}
+    <div class="quiz-item" data-correct="{{correctAnswer}}">
+        <h2>{{question}}</h2>
+        <audio controls autoplay>
+            <source src="{{audioSrc}}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <ul>
+            {{#each choices}}
+            <li><button class="choice-btn">{{this}}</button></li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/each}}
+</div>
+<button id="submit-quiz">Submit Quiz</button>
+
+<script src="/js/quiz.js"></script>
