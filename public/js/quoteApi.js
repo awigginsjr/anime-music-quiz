@@ -38,4 +38,4 @@ async function fetchRandomQuotes() {
   }
 }
 
-module.exports = { fetchRandomFacts, fetchRandomQuotes };
+module.exports = { fetchRandomFacts };

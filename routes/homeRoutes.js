@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     let projects = [{id: 1, title: 'Project 1'}, {id: 2, title: 'Project 2'}];
 
     // Serialize data so the template can read it
-   //projects = projectData.map((project) => project.get({ plain: true }));
+   // projects = projectData.map((project) => project.get({ plain: true }));
 
     console.log('projects', projects);
 
@@ -33,23 +33,28 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 
-  let quoteData = null;
-
   try {
-    // Fetch data from API endpoints
-    const factsResponse = await axios.get('https://waifu.it/api/v4/facts', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
-    const quotesResponse = await axios.get('https://waifu.it/api/v4/quotes', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
+    // Make an HTTP GET request to fetch data
+    const response = await axios.get('https://waifu.it/api/v4/facts');
     
-    // Extract data from responses
-    const facts = factsResponse.data;
-    const quotes = quotesResponse.data;
+    // Extract the data from the response
+    const data = response.data;
     
-    // Render main.handlebars with data
-    res.render('main', { facts, quotes });
+    // Render the view with the fetched data
+    return res.render('homepage', { data });
   } catch (error) {
+    // Log the error for debugging
     console.error('Error fetching data:', error.message);
-    res.status(500).send('Error fetching data');
-  }
+    
+    // Check if the error is a 404 Not Found
+    if (error.response && error.response.status === 404) {
+        // Send a 404 response with an error message
+        return res.status(404).send('Data not found');
+    } else {
+        // For other types of errors, send a generic error response
+        return res.status(500).send('Internal Server Error');
+    }
+}
 });
 
 router.get('/project/:id', async (req, res) => {

@@ -1,4 +1,3 @@
-
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -12,6 +11,18 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Set MIME type for JavaScript files
+app.get('*.js', function(req, res, next) {
+  res.setHeader('Content-Type', 'application/javascript');
+  next();
+});
+
+// Set MIME type for audio files
+app.get('*.mp3', function(req, res, next) {
+  res.setHeader('Content-Type', 'audio/mpeg');
+  next();
+});
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
