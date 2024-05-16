@@ -40,9 +40,18 @@
 </body>
 
 <footer>
-
-  <p>Anime Quote: {{quote}}</p>
-
+      <h2>Random Facts</h2>
+      <ul>
+        {{#each facts}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+      <h2>Random Quotes</h2>
+      <ul>
+        {{#each quotes}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
 </footer>
 
 </html>

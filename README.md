@@ -25,8 +25,6 @@ Repository ~ [Anime Music Quiz](https://github.com/Shanbeezy/anime-music-quiz.gi
 
 Heroku ~ [https://evening-tor-85224-6a8158656676.herokuapp.com/](https://evening-tor-85224-6a8158656676.herokuapp.com/)
 
-Maybe Heroku ~ [https://git.heroku.com/evening-tor-85224.git](https://git.heroku.com/evening-tor-85224.git)
-
 - Use Node.js and Express.js to create a RESTful API.
 
 - Use Handlebars.js as the template engine.

@@ -2,6 +2,8 @@ const router = require('express').Router();
 const axios = require('axios');
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const quizData = require('../seeds/quizData')
+const axios = require('axios');
 
 router.get('/', async (req, res) => {
   try {
@@ -30,6 +32,24 @@ router.get('/', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+
+  let quoteData = null;
+
+  try {
+    // Fetch data from API endpoints
+    const factsResponse = await axios.get('https://waifu.it/api/v4/facts', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
+    const quotesResponse = await axios.get('https://waifu.it/api/v4/quotes', { headers: { Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f' } });
+    
+    // Extract data from responses
+    const facts = factsResponse.data;
+    const quotes = quotesResponse.data;
+    
+    // Render main.handlebars with data
+    res.render('main', { facts, quotes });
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+    res.status(500).send('Error fetching data');
   }
 });
 

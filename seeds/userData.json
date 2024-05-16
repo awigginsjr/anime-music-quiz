@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-
-[
-    {
-      "username": "Anthony",
-      "password": "testingpage12"
-    },
-    {
-      "username": "Shannon",
-      "password": "creatingpage89"
-    },
-    {
-      "username": "Roxie",
-      "password": "seepage145"
-    }
-  ]
-  
-=======
 [
   {
     "username": "AntWiggs",
@@ -30,4 +12,3 @@
     "password": "password12345"
   }
 ]
->>>>>>> 6a4cbf95fe3c3abc6a50d1ccd45920d00a7de4a0
