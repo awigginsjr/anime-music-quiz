@@ -1,4 +1,4 @@
-const quizData = require("../../../seeds/quizData");
+const quizData = require("/seeds/quizData.js");
 
 document.addEventListener('DOMContentLoaded', function() {
     const quizContainer = document.getElementById('quiz-container');
@@ -49,4 +49,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
         alert('Your score: ' + score + '/' + quizItems.length);
     });
+    
 });

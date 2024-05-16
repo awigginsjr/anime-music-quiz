@@ -3,7 +3,6 @@ const axios = require('axios');
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 const quizData = require('../seeds/quizData')
-const axios = require('axios');
 
 router.get('/', async (req, res) => {
   try {
@@ -109,29 +108,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-
-router.get('/', async (req, res) => {
-  let quoteData = null;
-
-  try {
-      // Fetch quote data from API
-        quoteData = await axios.get('https://waifu.it/api/v4/:quote', {
-          headers: {
-              Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f'
-          }
-      });
-
-    } catch (err) {} 
-    
-    try { 
-      // Pass quote data to handlebars template
-      res.render('home', {
-          quote: quoteData && quoteData.data // Assuming the quote is in the 'data' property
-      });
-  } catch (error) {
-      console.error('Error fetching quote:', error);
-      res.render('home', { quote: 'Failed to fetch quote' }); // Render with default quote
-  }
+router.get('/music-quiz', (req, res) => {
+  res.render('music-quiz', { quizData });
 });
 
 module.exports = router;
