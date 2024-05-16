@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,8 @@
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
   <div class="login-container">
-
     <nav>
       <!-- Conditionally render login or logout links -->
       {{#if logged_in}}
@@ -22,42 +19,37 @@
       <!-- Sign up button -->
       <a href="/signup"><input type="submit" value="Signup" id="signupBtn"></a> 
       {{/if}}
-
     </nav>
-    
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
+  </div>
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
 
+  <!-- Include JavaScript files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  <script>
+    require.config({
+      baseUrl: 'js', // Base directory for modules
+      paths: {
+        // Define module aliases
+        'quizData': 'seeds/quizData'
+      }
+    });
 
-    <!-- Include JavaScript files -->
-    <script src="/seeds/quizData.js"></script>
-    <script src="/js/quiz.js"></script>
-
+    // Load the main module
+    require(['main']);
+  </script>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/public/css/js/logout.js"></script>
   {{/if}}
-
 </body>
-
 <footer>
-      <h2>Random Facts</h2>
-      <p>{{facts}}</p>
-      {{!-- <ul>
-        {{#each facts}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul> --}}
-      <h2>Random Quotes</h2>
-      <p>{{quote}}</p>
-      {{!-- <ul>
-        {{#each quotes}}
-        <li>{{this}}</li>
-        {{/each}}
-      </ul> --}}
+  <h2>Random Facts</h2>
+  <p>{{facts}}</p>
+  <h2>Random Quotes</h2>
+  <p>{{quote}}</p>
 </footer>
-
 </html>

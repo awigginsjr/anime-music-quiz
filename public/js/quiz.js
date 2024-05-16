@@ -1,4 +1,4 @@
-const quizData = require("/seeds/quizData.js");
+import quizData from "../../seeds/quizData";
 
 document.addEventListener('DOMContentLoaded', function() {
     const quizContainer = document.getElementById('quiz-container');
