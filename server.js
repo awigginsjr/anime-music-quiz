@@ -24,9 +24,20 @@ app.get('*.mp3', function(req, res, next) {
   next();
 });
 
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+// Set up Handlebars.js engine with custom helpers and directories for layouts and partials
+const hbs = exphbs.create({
+  helpers,
+  defaultLayout: 'main',
+  layoutsDir: path.join(__dirname, 'views', 'layouts'),
+  partialsDir: [
+    path.join(__dirname, 'views', 'partials')
+  ]
+});
 
+// Register the partial
+hbs.handlebars.registerPartial('nav', '{{> nav}}');
+
+// Session setup
 const sess = {
   secret: 'Super secret secret',
   cookie: {
@@ -48,12 +59,15 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use(routes);
 
+// Starting the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

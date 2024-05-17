@@ -9,18 +9,13 @@
 </head>
 <body>
   <div class="login-container">
+
     <nav>
-      <!-- Conditionally render login or logout links -->
-      {{#if logged_in}}
-      <a href="/profile">profile</a> |
-      <button class="no-button" id="logout">logout</button>
-      {{else}}
-      <a href="/login"><input type="submit" value="Login" id="loginBtn"></a> 
-      <!-- Sign up button -->
-      <a href="/signup"><input type="submit" value="Signup" id="signupBtn"></a> 
-      {{/if}}
+      {{> nav }}
     </nav>
+  
   </div>
+  
   <main class="container container-fluid mt-5">
     <!-- Render the sub layout -->
     {{{ body }}}
@@ -45,11 +40,13 @@
   {{#if logged_in}}
   <script src="/public/css/js/logout.js"></script>
   {{/if}}
-</body>
+
 <footer>
   <h2>Random Facts</h2>
   <p>{{facts}}</p>
   <h2>Random Quotes</h2>
   <p>{{quote}}</p>
 </footer>
+
+</body>
 </html>
