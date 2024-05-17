@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Anime Music App!</title>
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="login-container">
-    <nav>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <a href="/">Anime Music App!</a>
+      </h1>
+      <nav>
       <!-- Conditionally render login or logout links -->
-      {{#if logged_in}}
-      <a href="/profile">profile</a> |
-      <button class="no-button" id="logout">logout</button>
-      {{else}}
-      <a href="/login"><input type="submit" value="Login" id="loginBtn"></a> 
-      <!-- Sign up button -->
-      <a href="/signup"><input type="submit" value="Signup" id="signupBtn"></a> 
-      {{/if}}
-    </nav>
+        {{#if logged_in}}
+        <a href="/profile">profile</a> 
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login"><input type="submit" value="Login" id="loginBtn"></a> 
+        <!-- Sign up button -->
+        <a href="/signup"><input type="submit" value="Signup" id="signupBtn"></a> 
+        {{/if}}
+      </nav>
+    </header>
   </div>
   <main class="container container-fluid mt-5">
     <!-- Render the sub layout -->
@@ -47,9 +52,16 @@
   {{/if}}
 </body>
 <footer>
+
+
+
+  {{#if funFact}}
   <h2>Random Facts</h2>
-  <p>{{facts}}</p>
-  <h2>Random Quotes</h2>
-  <p>{{quote}}</p>
+  <p>{{funFact.fact}}</p>
+  {{/if}}
+
+
+
+
 </footer>
 </html>

@@ -5,56 +5,58 @@ const withAuth = require('../utils/auth');
 const quizData = require('../seeds/quizData')
 
 router.get('/', async (req, res) => {
+
+
+  let projects = [];
+  let funFact = null;
+
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+
+    // // Get all projects and JOIN with user data
+    // projectData = await Project.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
 
 
-    let projects = [{id: 1, title: 'Project 1'}, {id: 2, title: 'Project 2'}];
+    projects = [{id: 1, title: 'Project 1'}, {id: 2, title: 'Project 2'}];
 
     // Serialize data so the template can read it
    // projects = projectData.map((project) => project.get({ plain: true }));
 
-    console.log('projects', projects);
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  } catch (err) {}
 
   try {
     // Make an HTTP GET request to fetch data
-    const response = await axios.get('https://waifu.it/api/v4/facts');
+    const response = await axios.get('https://waifu.it/api/v4/fact', {
+      headers: {
+        Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f',
+      },
+    });
     
     // Extract the data from the response
-    const data = response.data;
-    
-    // Render the view with the fetched data
-    return res.render('homepage', { data });
-  } catch (error) {
-    // Log the error for debugging
-    console.error('Error fetching data:', error.message);
-    
-    // Check if the error is a 404 Not Found
-    if (error.response && error.response.status === 404) {
-        // Send a 404 response with an error message
-        return res.status(404).send('Data not found');
-    } else {
-        // For other types of errors, send a generic error response
-        return res.status(500).send('Internal Server Error');
-    }
-}
+   funFact = response.data;
+
+  } catch (error) {}
+
+
+
+  console.log('projects', projects)
+  console.log('funFact', funFact)
+
+ 
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      projects, // []
+      funFact: funFact, // null
+      logged_in: req.session.logged_in 
+    }); 
+
+
 });
 
 router.get('/project/:id', async (req, res) => {
