@@ -116,7 +116,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/music-quiz', (req, res) => {
-  res.render('music-quiz', { quizData });
+  res.render('music-quiz', { quizData: encodeURIComponent(JSON.stringify(quizData)) });
 });
 
 module.exports = router;
