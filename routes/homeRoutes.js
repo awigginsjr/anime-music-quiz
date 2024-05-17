@@ -6,7 +6,6 @@ const quizData = require('../seeds/quizData')
 
 router.get('/', async (req, res) => {
 
-
   let projects = [];
   let funFact = null;
 
@@ -30,18 +29,19 @@ router.get('/', async (req, res) => {
 
   } catch (err) {}
 
-  try {
-    // Make an HTTP GET request to fetch data
-    const response = await axios.get('https://waifu.it/api/v4/fact', {
-      headers: {
-        Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f',
-      },
-    });
-    
-    // Extract the data from the response
-   funFact = response.data;
 
-  } catch (error) {}
+  // try {
+  //   // Make an HTTP GET request to fetch data
+  //   const response = await axios.get('https://waifu.it/api/v4/fact', {
+  //     headers: {
+  //       Authorization: 'NzE5MDM0ODI5MDkzNjAxMzUy.MTcxNTczMDU5Mg--.fada2b62c98f',
+  //     },
+  //   });
+    
+  //   // Extract the data from the response
+  //  funFact = response.data;
+
+  // } catch (error) {}
 
 
 
