@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Quiz</title>
+</head>
+<body>
+    <h1>Music Quiz</h1>
+    <div id="quiz-container"></div>
+    <button id="submit-quiz">Submit Quiz</button>
+
+    <!-- Pass quizData to the JavaScript -->
+    <script>
+        const quizData = JSON.parse(decodeURIComponent('{{quizData}}'));
+    </script>
+    <script src="/js/quiz.js"></script>
+</body>
+</html>

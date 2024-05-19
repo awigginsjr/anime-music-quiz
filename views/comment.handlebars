@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        #commentSection {
+            width: 50%;
+            margin: 0 auto;
+        }
+        #commentList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #commentList li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- Add navbar content here -->
+    </div>
+
+    <div id="commentSection">
+        <form action="/submit-comment" method="post">
+            <label for="comment">Comment:</label>
+            <textarea name="comment" id="comment" required></textarea><br>
+            <input type="submit" value="New Comment">
+        </form>
+        <ul id="commentList">
+            {{#each comments}}
+                <li>
+                    <p>{{this.text}}</p>
+                    <p><small>Posted on: {{this.date}}</small></p>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+</html>

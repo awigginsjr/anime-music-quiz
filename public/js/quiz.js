@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const quizContainer = document.getElementById('quiz-container');
 
@@ -11,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             html += `
             <div class="quiz-item" data-correct="${question.correctAnswer}">
                 <h2>${question.question}</h2>
-                <audio controls autoplay>
+                <audio controls>
                     <source src="${question.audioSrc}" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
@@ -19,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${question.choices.map(choice => `<li><button class="choice-btn">${choice}</button></li>`).join('')}
                 </ul>
             </div>
-        `; 
+        `;
         });
         quizContainer.innerHTML = html;
     }
@@ -30,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add event listener for choice button clicks
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('choice-btn')) {
-            const buttons = e.target.parentNode.parentNode.querySelectorAll('.choice-btn');
+            const buttons = e.target.closest('ul').querySelectorAll('.choice-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             e.target.classList.add('active');
         }
@@ -50,5 +47,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
         alert('Your score: ' + score + '/' + quizItems.length);
     });
-    
 });
