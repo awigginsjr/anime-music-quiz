@@ -11,21 +11,10 @@ router.use('/api', apiRoutes);
 // Define comments array to store comments
 let comments = [];
 
+const seedQuizData = require('../seeds/quizData.js');
+
 // Example quiz data
-const quizData = JSON.stringify([
-    {
-        question: "What is the capital of France?",
-        audioSrc: "/audio/france.mp3",
-        choices: ["Paris", "Berlin", "Madrid"],
-        correctAnswer: "Paris"
-    },
-    {
-        question: "What is the capital of Germany?",
-        audioSrc: "/audio/germany.mp3",
-        choices: ["Vienna", "Berlin", "Rome"],
-        correctAnswer: "Berlin"
-    }
-]);
+const quizData = JSON.stringify(seedQuizData);
 
 // Middleware to check if the user is logged in
 const isLoggedIn = (req, res, next) => {
