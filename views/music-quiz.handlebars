@@ -5,7 +5,7 @@
 
 <h1>Music Quiz</h1>
 <div id="quiz-container">
-    {{#each quizData}}
+    {{#each quizzes}}
     <div class="quiz-item" data-correct="{{correctAnswer}}">
         <h2>{{question}}</h2>
         <audio controls>
@@ -14,7 +14,7 @@
         </audio>
         <ul>
             {{#each choices}}
-            <li><button class="choice-btn">{{this}}</button></li>
+            <li><button class="choice-btn">{{choiceText}}</button></li>
             {{/each}}
         </ul>
     </div>

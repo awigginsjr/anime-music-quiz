@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Quiz</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    {{> navbar }}
+  </header>
+
+  <main>
+    <h1>Music Quiz</h1>
+    <div id="quiz-container">
+        {{#each quizzes}}
+        <div class="quiz-item" data-correct="{{correctAnswer}}">
+            <h2>{{question}}</h2>
+            <audio controls>
+                <source src="{{audioSrc}}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <ul>
+                {{#each choices}}
+                <li><button class="choice-btn">{{choiceText}}</button></li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    <button id="submit-quiz">Submit Quiz</button>
+  </main>
+
+  <footer>
+    <h2>Random Facts</h2>
+    <p>{{facts}}</p>
+    <h2>Random Quotes</h2>
+    <p>{{quote}}</p>
+  </footer>
+
+  <script src="/js/quiz.js"></script>
+  {{#if logged_in}}
+  <script src="/public/css/js/logout.js"></script>
+  {{/if}}
+</body>
+</html>
