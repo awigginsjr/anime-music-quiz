@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify API Music Example</title>
+
+    <!-- Include Handlebars from a CDN -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <h1>Spotify API Example</h1>
+    <input type="text" id="searchInput" placeholder="Search for a track...">
+    <button onclick="search()">Search</button>
+    <div id="results"></div>
+
+    <!-- Handlebars template for displaying search results -->
+    <script id="results-template" type="text/x-handlebars-template">
+        {{#each tracks}}
+            <div>
+                <a href="{{this.external_urls.spotify}}">{{this.name}}</a>
+            </div>
+        {{/each}}
+    </script>
+
+    <script src="/js/spotify.js"></script>
+</body>
+</html>
