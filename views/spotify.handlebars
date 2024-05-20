@@ -1,0 +1,41 @@
+<!-- spotify.handlebars -->
+{{!-- Include the navigation bar --}}
+<nav>
+    <a href="/home">Home</a>
+    <a href="/comments">Comments</a>
+    <a href="/spotify">Spotify</a>
+    <a href="/quiz">Quiz</a>
+    {{#if isLoggedIn}}
+        <a href="/logout">Logout</a>
+    {{else}}
+        <a href="/login">Login</a>
+    {{/if}}
+</nav>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+
+{{!-- Add the Spotify iframe below the navigation bar --}}
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/15RmEeRMaZPPyXf6gxLn6v?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5DDS4KGAieR0dhpJsLGukn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/57MPlXPzzMql6fTyldNAxe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1a5ju4aTgCZWxVnSZyXpAT?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1wrj2cIaKQbIlo54xYePlS?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

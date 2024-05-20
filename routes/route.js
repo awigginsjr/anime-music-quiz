@@ -32,6 +32,21 @@ router.get('/signup', (req, res) => res.render('signup', { query: req.query }));
 router.get('/comments', isLoggedIn, (req, res) => res.render('comments', { comments }));
 router.get('/quiz', isLoggedIn, (req, res) => res.render('quiz', { quizData: encodeURIComponent(quizData) }));
 
+router.get('/spotify', isLoggedIn, (req, res) => {
+    res.render('spotify', {
+        layout: false, // Assuming you don't want to use the default layout
+        tracks: [] // Initially, there are no tracks to display
+    });
+});
+
+router.post('/spotify-search', isLoggedIn, async (req, res) => {
+    const searchKeyword = req.body.search; // Assuming your input field is named 'search'
+    // Logic to call Spotify's search API with the searchKeyword
+    // Process the response from Spotify
+    // Send the search results back to the client
+});
+
+
 
 router.post('/submit-comments', isLoggedIn, (req, res) => {
     const comment = req.body.comment;no
