@@ -1,107 +1,82 @@
 const clientID = '66fe6133fda54d3aa9b93bd5d3b1f556';
-        const clientSecret = 'da29e7ed46b7411bba3d550979f8482d';
+const clientSecret = '826a89619b6b4741aac6dec6297ebbf2';
 
-        // Base64 encode clientID:clientSecret
-        const basicToken = btoa(`${clientID}:${clientSecret}`);
+// Base64 encode clientID:clientSecret
+const basicToken = btoa(`${clientID}:${clientSecret}`);
 
-        let accessToken = '';
+let accessToken = '';
 
-        async function getToken() {
-            const response = await fetch('https://accounts.spotify.com/api/token', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': `Basic ${basicToken}`
-                },
-                body: 'grant_type=client_credentials'
-            });
+async function getToken() {
+    const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Basic ${basicToken}`
+        },
+        body: 'grant_type=client_credentials'
+    });
 
+    const data = await response.json();
+    accessToken = data.access_token;
+}
+
+async function search() {
+    if (!accessToken) {
+        await getToken();
+    }
+
+    const searchInput = document.getElementById('searchInput').value.trim();
+    if (!searchInput) {
+        console.error('Please enter a search query');
+        return;
+    }
+
+    const apiUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInput)}&type=track&limit=1`;
+
+    try {
+        const response = await fetch(apiUrl, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+
+        if (response.ok) {
             const data = await response.json();
-            accessToken = data.access_token;
+            displayResults(data.tracks.items);
+        } else {
+            throw new Error('Failed to fetch data');
         }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-        async function search() {
-            if (!accessToken) {
-                await getToken();
-            }
+function playTrack(trackId) {
+    var iframe = document.getElementById('spotifyPlayer');
+    iframe.src = "https://open.spotify.com/embed/track/" + trackId;
+}
 
-            const searchInput = document.getElementById('searchInput').value.trim();
-            if (!searchInput) {
-                console.error('Please enter a search query');
-                return;
-            }
+function displayResults(tracks) {
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';
 
-            // Search for tracks by anime-related artists or albums
-            const apiUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInput)}&type=artist,album`;
+    if (tracks.length === 0) {
+        resultsContainer.innerHTML = '<p>No results found</p>';
+        return;
+    }
 
-            try {
-                const response = await fetch(apiUrl, {
-                    headers: {
-                        'Authorization': `Bearer ${accessToken}`
-                    }
-                });
+    const track = tracks[0];
+    const trackInfo = `${track.name} - ${track.artists[0].name}`;
+    const trackLink = document.createElement('a');
+    trackLink.href = "#";
+    trackLink.textContent = trackInfo;
+    trackLink.onclick = () => {
+        playTrack(track.id);
+        return false;
+    };
 
-                if (response.ok) {
-                    const data = await response.json();
+    resultsContainer.appendChild(trackLink);
+}
 
-                    // Filter the search results to include only anime-related artists or albums
-                    const animeTracks = filterAnimeTracks(data);
-                    displayResults(animeTracks);
-                } else {
-                    throw new Error('Failed to fetch data');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-        function filterAnimeTracks(data) {
-            const animeTracks = [];
-
-            // Example: Check if the artists or albums contain anime-related keywords
-            data.artists.items.forEach(artist => {
-                if (artist.name.toLowerCase().includes('anime')) {
-                    animeTracks.push(artist);
-                }
-            });
-
-            data.albums.items.forEach(album => {
-                if (album.name.toLowerCase().includes('anime')) {
-                    animeTracks.push(album);
-                }
-            });
-
-            return animeTracks;
-        }
-
-        function displayResults(tracks) {
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = '';
-
-            if (tracks.length === 0) {
-                resultsContainer.innerHTML = '<p>No results found</p>';
-                return;
-            }
-
-            const ul = document.createElement('ul');
-
-            tracks.forEach(track => {
-                const li = document.createElement('li');
-                const link = document.createElement('a');
-
-                // Adjust link and text based on whether it's an artist or an album
-                if (track.type === 'artist') {
-                    link.href = track.external_urls.spotify;
-                    link.textContent = track.name;
-                } else if (track.type === 'album') {
-                    link.href = track.external_urls.spotify;
-                    link.textContent = track.name;
-                }
-
-                li.appendChild(link);
-                ul.appendChild(li);
-            });
-
-            resultsContainer.appendChild(ul);
-        }
-    
+// Ensure the search button triggers the search function
+document.getElementById('searchButton').onclick = search;

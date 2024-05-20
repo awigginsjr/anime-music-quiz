@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/style.css">
     
     <style>
-        /* CSS for styling */
         body {
             font-family: Arial, sans-serif;
         }
@@ -31,37 +30,28 @@
     </style>
 </head>
 <body>
-    
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2 centered-header">
             <h1 style="font-size: 50px;">
                 <a href="/">Anime Music</a>
 
                 <style>
-                    /* CSS for styling */
-
                     .display-flex {
                         display: flex;
                     }
-
                     .justify-space-between {
                         justify-content: space-between;
                     }
-
                     .align-center {
                         align-items: center;
                     }
-
                     .p-2 {
                         padding: 2px;
-                        }
-
-                    .centered-header {
-                        margin: 0 auto; /* Center horizontally */
                     }
-
+                    .centered-header {
+                        margin: 0 auto;
+                    }
                 </style>
-
             </h1> 
         </header>
     </div>
@@ -69,7 +59,6 @@
         <a href="/home">Home</a>
         <a href="/comments">Comments</a>
         <a href="/spotify">Spotify</a>
-        
         <a href="/quiz">Quiz</a>
         {{#if isLoggedIn}}
             <a href="/logout">Logout</a>
@@ -77,7 +66,6 @@
             <a href="/login">Login</a>
         {{/if}}
     </nav>
-
     
     <div class="content">
         {{{body}}}
