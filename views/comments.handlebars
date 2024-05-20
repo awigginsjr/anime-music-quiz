@@ -1,0 +1,12 @@
+<h1>Comments</h1>
+{{#each comments}}
+    <div class="comment">
+        <p>{{this.text}}</p>
+        <p>Posted on: {{this.date}}</p>
+    </div>
+{{/each}}
+
+<form action="/submit-comment" method="POST">
+    <textarea name="comment" placeholder="Write your comment here..."></textarea>
+    <button type="submit">Post Comment</button>
+</form>

@@ -1,14 +1,18 @@
-<body>
+
   <div class="signup-container">
+
+
+    {{#if query.error}}
+      <p>{{query.error}}</p>
+    {{/if}}
+
   <h2>Sign Up</h2>
-  <form method="POST" action="/signup">
+  <form method="POST" action="/api/users/">
     <!-- signup fields -->
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="name" placeholder="John Doe" required />
+   <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
     <button type="submit">Sign Up</button>
   </form>
   <p>Already have an account? <a href="/login">Login here</a>.</p>
 </div>
-
-</body>

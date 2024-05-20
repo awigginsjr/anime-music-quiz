@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Quiz</title>
+</head>
+
+<body>
+    <h1 class=" centered-header">Music Quiz</h1>
+
+    <style>
+    .centered-header {
+    text-align: center;
+    }
+    </style>
+
+
+    <h2>Test your knowledge of Anime Music!</h2>
+    <div id="quiz-container"></div>
+    <button id="submit-quiz">Submit Quiz</button>
+
+    <!-- Pass quizData to the JavaScript -->
+    <script>
+        const quizData = JSON.parse(decodeURIComponent('{{quizData}}'));
+    </script>
+    <script src="/js/quiz.js"></script>
+</body>
+</html>

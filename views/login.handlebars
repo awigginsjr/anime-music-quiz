@@ -1,14 +1,73 @@
-
-<h2>Welcome!!</h2>
-
-<div class="login-container">
-  <h2>Login</h2>
-  <form method="POST" action="/login">
-    <!-- login fields -->
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-  </form>
-  <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+<div class="navbar">
+  <!-- Navbar content goes here if needed -->
 </div>
 
+<div class="login-container">
+  <div class="login-frame">
+
+    {{#if query.error}}
+      <p>{{query.error}}</p>
+    {{/if}}
+
+    <form action="/api/users/login" method="post">
+      <div class="input-container">
+        Email: <input type="email" name="email"><br>
+      </div>
+      <div class="input-container">
+        Password: <input type="password" name="password"><br>
+      </div>
+      <input type="submit" value="Login">
+    </form>
+
+  <p>New account? <a href="/signup">Signup here</a>.</p>
+
+    {{#if isLoggedIn}}
+      <form action="/logout" method="get">
+        <input type="submit" value="Logout">
+      </form>
+    {{/if}}
+  </div>
+
+  <style>
+ .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-frame {
+    padding: 20px;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+</style>
+</div>
