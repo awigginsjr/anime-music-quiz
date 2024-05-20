@@ -28,7 +28,15 @@
     {{/if}}
   </div>
 
-  <style>
+ <style>
+
+  body {
+            background-image: url('images/dragon.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+
  .login-container {
     display: flex;
     justify-content: center;
@@ -40,8 +48,10 @@
     padding: 20px;
     border: 2px solid #ccc;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 100px; /* Add this line to move the frame down */
+    width: 40%;
 }
 
 .input-container {
