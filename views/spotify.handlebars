@@ -1,30 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify API Music Example</title>
+<!-- spotify.handlebars -->
+{{!-- Include the navigation bar --}}
+<nav>
+    <a href="/home">Home</a>
+    <a href="/comments">Comments</a>
+    <a href="/spotify">Spotify</a>
+    <a href="/quiz">Quiz</a>
+    {{#if isLoggedIn}}
+        <a href="/logout">Logout</a>
+    {{else}}
+        <a href="/login">Login</a>
+    {{/if}}
+</nav>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
 
-    <!-- Include Handlebars from a CDN -->
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
-
-    <!-- Add your CSS links here -->
-</head>
-<body>
-    <h1>Spotify API Example</h1>
-    <input type="text" id="searchInput" placeholder="Search for a track...">
-    <button onclick="search()">Search</button>
-    <div id="results"></div>
-
-    <!-- Handlebars template for displaying search results -->
-    <script id="results-template" type="text/x-handlebars-template">
-        {{#each tracks}}
-            <div>
-                <a href="{{this.external_urls.spotify}}">{{this.name}}</a>
-            </div>
-        {{/each}}
-    </script>
-
-    <script src="/js/spotify.js"></script>
-</body>
-</html>
+{{!-- Add the Spotify iframe below the navigation bar --}}
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/15RmEeRMaZPPyXf6gxLn6v?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5DDS4KGAieR0dhpJsLGukn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/57MPlXPzzMql6fTyldNAxe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1a5ju4aTgCZWxVnSZyXpAT?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1wrj2cIaKQbIlo54xYePlS?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

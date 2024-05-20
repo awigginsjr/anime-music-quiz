@@ -19,7 +19,7 @@
       <input type="submit" value="Login">
     </form>
 
-  <p>New account? <a href="/signup">Signup here</a>.</p>
+    <p>New account? <a href="/signup">Signup here</a>.</p>
 
     {{#if isLoggedIn}}
       <form action="/logout" method="get">
@@ -27,40 +27,39 @@
       </form>
     {{/if}}
   </div>
+</div>
 
- <style>
-
-  
-
- .login-container {
+<style>
+  .login-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start; /* Aligns items to the start of the container horizontally */
+    align-items: center; /* Centers items vertically */
     height: 100vh;
-}
+    padding-left: 5%; /* Adjust the padding to move the frame further from the left edge */
+  }
 
-.login-frame {
+  .login-frame {
     padding: 20px;
     border: 2px solid #ccc;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top: 100px; /* Add this line to move the frame down */
     width: 40%;
-}
+    margin-top: -70px; /* Adjust this value to move the frame up */
+  }
 
-.input-container {
+  .input-container {
     margin-bottom: 10px;
-}
+  }
 
-.input-container input {
+  .input-container input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
+  }
 
-button {
+  button {
     width: 100%;
     padding: 10px;
     background-color: #333;
@@ -68,11 +67,9 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+  }
 
-button:hover {
+  button:hover {
     background-color: #555;
-}
-
+  }
 </style>
-</div>
