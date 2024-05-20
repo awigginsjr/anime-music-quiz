@@ -4,7 +4,7 @@
 
 ## Screenshot of Application
 
-![screenshot]()
+![screenshot](/public/images/README.screenshot.png)
 
 ## Contributing ~
 
