@@ -2,6 +2,11 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
+body {
+  background-image: url('https://wallpaper.forfun.com/fetch/17/17a1147b945d2919237bc99729bb952a.jpeg?w=1470&r=0.5625') !important;
+  background-size: cover !important;
+}
+
 .no-button {
   background: none;
   border: none;
