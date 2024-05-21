@@ -60,7 +60,7 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg);
   });
 });
-
-sequelize.sync({ force: true }).then(() => {
+s
+sequelize.sync({ force: false }).then(() => {
   server.listen(port, () => console.log(`Server is running on port ${port}`));
 });
