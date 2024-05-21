@@ -61,6 +61,6 @@ io.on('connection', (socket) => {
   });
 });
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   server.listen(port, () => console.log(`Server is running on port ${port}`));
 });
