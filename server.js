@@ -10,7 +10,7 @@ const SessionStore = require('express-session-sequelize')(session.Store);
 const routes = require('./routes/route');
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // Set up Handlebars middleware with a default layout
 app.engine('handlebars', engine({
