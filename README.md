@@ -65,5 +65,3 @@ Heroku ~ [https://evening-tor-85224-6a8158656676.herokuapp.com/](https://evening
 ## Thank You!
 
 Enjoy exploring the world of anime with our Application!
-
-/
